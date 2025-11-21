@@ -1,0 +1,556 @@
+/**
+ * YourCommentOnAShirt - Variation Swatches Styles
+ * Custom styling for product variation buttons (replaces dropdown selects)
+ */
+
+/* Hide original select dropdowns */
+.variations select {
+    display: none !important;
+}
+
+/* Hide the reset link initially */
+.variations .reset_variations {
+    display: none !important;
+}
+
+.variations tbody tr:first-child {
+    margin-bottom: 1rem;
+}
+
+/* Button containers */
+.ycos-variation-buttons {
+    display: flex;
+    gap: 4px;
+    flex: 1;
+    justify-content: space-evenly;
+    height: 36px;
+}
+
+/* Shared button styles */
+.ycos-variation-button {
+    flex: 1;
+    padding: 0;
+    border: 4px solid #e9e9e9;
+    background: #e9e9e9;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.ycos-variation-button:hover {
+    border-color: #999;
+}
+
+.ycos-variation-button.selected {
+    border-color: #000;
+    background-color: #000;
+}
+
+.ycos-variation-button.disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+/* Size variation buttons */
+.ycos-size-variation {
+    color: #000;
+}
+
+.ycos-size-variation.selected {
+    color: #fff;
+}
+
+/* Color swatches */
+.color-swatch {
+    width: calc(100% - 4px);
+    height: calc(100% - 4px);
+    border-radius: 2px;
+}
+
+.color-swatch:not(.color-picker) {
+    border: solid 2px #e9e9e9;
+}
+
+.color-swatch.color-picker {
+    object-fit: contain;
+}
+
+/* Container for all alignment buttons (horizontal and vertical) */
+.ycos-alignment-buttons-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+    margin-bottom: 0;
+}
+
+/* Control group wrapper with label */
+.ycos-control-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Control labels */
+.ycos-control-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #666;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-align: center;
+}
+
+/* Color display wrapper - positions color picker relative to button */
+.ycos-color-display-wrapper {
+    position: relative;
+    display: flex;
+    align-self: flex-start;
+    flex-shrink: 0;
+    border: solid 4px black;
+    border-bottom: 0;
+    border-radius: 4px 4px 0 0;
+}
+
+/* Color display button in center */
+.ycos-color-display-button {
+    width: 32px;
+    height: 28px;
+    padding: 0;
+    border: 0;
+    background: black;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: none;
+    position: relative;
+    z-index: 1;
+}
+
+.ycos-color-display-button:hover {
+    background: #f5f5f5;
+}
+
+.ycos-color-swatch {
+    width: 100%;
+    height: calc(100% - 4px);
+    border-radius: 2px;
+    border: 2px solid #e9e9e9;
+}
+
+/* Color input - positioned absolutely over button for iOS Safari compatibility */
+.ycos-color-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 2;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: transparent;
+    /* Ensure it's clickable on iOS */
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+/* For iOS Safari - ensure the input is actually tappable */
+@supports (-webkit-touch-callout: none) {
+    .ycos-color-input {
+        opacity: 0.01;
+        pointer-events: auto;
+    }
+}
+
+/* Alignment dropdown containers (shared for horizontal and vertical) */
+.ycos-alignment-dropdown {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+/* Position horizontal alignment buttons on the left */
+.ycos-alignment-horizontal {
+    align-self: center;
+}
+
+.ycos-alignment-vertical {
+    align-self: flex-end;
+}
+
+
+/* Hide non-selected buttons by default */
+.ycos-alignment-dropdown .ycos-align-button:not(.selected),
+.ycos-alignment-dropdown .ycos-valign-button:not(.selected) {
+    display: none;
+}
+
+/* Show all buttons when expanded */
+.ycos-alignment-dropdown.expanded .ycos-align-button,
+.ycos-alignment-dropdown.expanded .ycos-valign-button {
+    display: flex;
+}
+
+/* Add smooth transition for expansion */
+.ycos-alignment-dropdown {
+    transition: all 0.3s ease;
+}
+
+/* Create absolute positioning context for expanded dropdown */
+.ycos-alignment-dropdown.expanded {
+    gap: 0;
+}
+
+/* Make expanded dropdown overlay content */
+.ycos-alignment-dropdown.expanded .ycos-align-button:not(:first-child),
+.ycos-alignment-dropdown.expanded .ycos-valign-button:not(:first-child) {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+}
+
+/* Stack the non-first buttons vertically */
+.ycos-alignment-dropdown.expanded .ycos-align-button:nth-child(2),
+.ycos-alignment-dropdown.expanded .ycos-valign-button:nth-child(2) {
+    top: calc(100% + 0px);
+}
+
+.ycos-alignment-dropdown.expanded .ycos-align-button:nth-child(3),
+.ycos-alignment-dropdown.expanded .ycos-valign-button:nth-child(3) {
+    top: calc(100% + 30px);
+}
+
+/* Individual alignment buttons */
+.ycos-align-button {
+    width: 40px;
+    height: 32px;
+    padding: 8px;
+    border: 4px solid black;
+    background: #fff;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.ycos-align-button img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: filter 0.2s ease;
+}
+
+/* When collapsed, only show the first (selected) button with rounded corners */
+.ycos-alignment-dropdown:not(.expanded) .ycos-align-button.selected {
+    border-radius: 0;
+    border-bottom: none;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+/* Add a subtle indicator that button is expandable */
+.ycos-alignment-dropdown:not(.expanded) .ycos-align-button.selected::after,
+.ycos-alignment-dropdown:not(.expanded) .ycos-valign-button.selected::after {
+    content: '⋮';
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    font-size: 10px;
+    color: #666;
+    line-height: 1;
+    pointer-events: none;
+}
+
+/* When expanded, adjust borders for stacked appearance */
+.ycos-alignment-dropdown.expanded .ycos-align-button:first-child {
+    border-bottom: none;
+    border-radius: 0;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+.ycos-alignment-dropdown.expanded .ycos-align-button:nth-child(2) {
+    border-bottom: 2px solid black;
+    border-radius: 0;
+}
+
+.ycos-alignment-dropdown.expanded .ycos-align-button:last-child {
+    border-radius: 4px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+/* Hover state */
+.ycos-align-button:hover {
+    background: #f5f5f5;
+}
+
+/* Selected state */
+.ycos-align-button.selected {
+    background: #000;
+    color: #fff;
+}
+
+.ycos-align-button.selected img {
+    filter: invert(1);
+}
+
+/* Individual vertical alignment buttons */
+.ycos-valign-button {
+    width: 40px;
+    height: 32px;
+    padding: 8px;
+    border: 4px solid black;
+    background: #fff;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.ycos-valign-button img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: filter 0.2s ease;
+}
+
+/* When collapsed, only show the first (selected) button with rounded corners */
+.ycos-alignment-dropdown:not(.expanded) .ycos-valign-button.selected {
+    border-radius: 0;
+    border-bottom: none;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+/* When expanded, adjust borders for stacked appearance */
+.ycos-alignment-dropdown.expanded .ycos-valign-button:first-child {
+    border-bottom: none;
+    border-radius: 2px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+.ycos-alignment-dropdown.expanded .ycos-valign-button:nth-child(2) {
+    border-bottom: 2px solid black;
+    border-radius: 0;
+}
+
+.ycos-alignment-dropdown.expanded .ycos-valign-button:last-child {
+    border-radius: 4px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+/* Hover state */
+.ycos-valign-button:hover {
+    background: #f5f5f5;
+}
+
+/* Selected state */
+.ycos-valign-button.selected {
+    background: #000;
+    color: #fff;
+}
+
+.ycos-valign-button.selected img {
+    filter: invert(1);
+}
+
+/* Font size control */
+.ycos-font-size-control {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    align-self: flex-start;
+    border: solid 4px black;
+    border-bottom: none;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    overflow: hidden;
+}
+
+.ycos-font-size-button {
+    width: 24px;
+    height: 28px;
+    padding: 0;
+    border: none;
+    background: #000;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.ycos-font-size-button:first-child {
+    border-right: 4px solid black;
+}
+
+.ycos-font-size-button:last-child {
+    border-left: 4px solid black;
+}
+
+.ycos-font-size-button:hover {
+    background: #f5f5f5;
+    color: #000;
+}
+
+.ycos-font-size-button:active {
+    background: #e0e0e0;
+    color: #000;
+}
+
+.ycos-font-size-input {
+    width: 32px;
+    height: 28px;
+    border: none;
+    background: #fff;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 0;
+    appearance: textfield;
+    -moz-appearance: textfield;
+}
+
+.ycos-font-size-input::-webkit-inner-spin-button,
+.ycos-font-size-input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.ycos-font-size-input:focus {
+    outline: none;
+    background: #f9f9f9;
+}
+
+/* Font dropdown styles */
+.ycos-font-dropdown {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+}
+
+.ycos-font-display-button {
+    max-width: 15vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 32px;
+    padding: 4px 12px;
+    border: 4px solid black;
+    background: #fff;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-bottom: none;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+.ycos-font-display-button:hover {
+    background: #f5f5f5;
+}
+
+.ycos-font-display-button.selected {
+    background: #000;
+    color: #fff;
+}
+
+.ycos-font-name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Add dropdown indicator */
+.ycos-font-display-button::after {
+    content: '⋮';
+    position: absolute;
+    bottom: 2px;
+    right: 4px;
+    font-size: 10px;
+    color: #666;
+    line-height: 1;
+    pointer-events: none;
+}
+
+.ycos-font-display-button.selected::after {
+    color: #fff;
+}
+
+/* Font options dropdown */
+.ycos-font-options {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 200px;
+    max-height: 200px;
+    overflow-y: auto;
+    background: #fff;
+    border: 4px solid black;
+    border-top: 2px solid black;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    z-index: 1000;
+    display: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.ycos-font-options.show {
+    display: block;
+}
+
+.ycos-font-option {
+    padding: 12px 16px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 16px;
+    white-space: nowrap;
+}
+
+.ycos-font-option:last-child {
+    border-bottom: none;
+}
+
+.ycos-font-option:hover {
+    background: #f5f5f5;
+}
+
+.ycos-font-option.selected {
+    background: #000;
+    color: #fff;
+}
+

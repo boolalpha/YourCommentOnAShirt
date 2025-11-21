@@ -1,0 +1,31 @@
+# .env Configuration Template
+# Copy this to .env in the project root and fill in your actual credentials
+# 
+# IMPORTANT: Never commit .env to git! It's already in .gitignore
+
+# Reddit App Credentials (from https://www.reddit.com/prefs/apps)
+REDDIT_CLIENT_ID=your_client_id_here
+REDDIT_CLIENT_SECRET=your_client_secret_here
+
+# Reddit Bot Account Credentials
+REDDIT_USERNAME=YourCommentOnAShirtBot
+REDDIT_PASSWORD=your_bot_password_here
+
+# Image Generation API Key (for accessing Node.js image service)
+# Generate using: cd ../../../node-backend && npm run generate-key
+# Must match the API_KEY in node-backend/.env
+IMAGE_API_KEY=your_api_key_here_minimum_32_characters
+
+# Optional: Override config.yaml settings via environment variables
+# Uncomment and customize as needed:
+# BOT_BASE_URL=https://yourcommentonashirt.com/shop/1
+# BOT_MAX_COMMENT_LENGTH=280
+# LOG_LEVEL=DEBUG
+# LOG_FILE=logs/bot.log
+
+# Usage:
+# 1. Copy this file: cp docs/env-example.txt .env
+# 2. Edit .env with your actual credentials
+# 3. Verify permissions: chmod 600 .env
+# 4. Never commit .env to version control
+

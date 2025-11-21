@@ -1,0 +1,332 @@
+/* Include fonts available for image generation */
+@font-face {
+    font-family: 'Annie Use Your Telescope';
+    src: url('/wp-content/themes/twentytwentyfour/assets/fonts/Annie_Use_Your_Telescope/AnnieUseYourTelescope-Regular.ttf') format('truetype');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Asset';
+    src: url('/wp-content/themes/twentytwentyfour/assets/fonts/Asset/Asset-Regular.ttf') format('truetype');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'BBH Sans Bartle';
+    src: url('/wp-content/themes/twentytwentyfour/assets/fonts/BBH_Sans_Bartle/BBHSansBartle-Regular.ttf') format('truetype');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'BBH Sans Bogle';
+    src: url('/wp-content/themes/twentytwentyfour/assets/fonts/BBH_Sans_Bogle/BBHSansBogle-Regular.ttf') format('truetype');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'BBH Sans Hegarty';
+    src: url('/wp-content/themes/twentytwentyfour/assets/fonts/BBH_Sans_Hegarty/BBHSansHegarty-Regular.ttf') format('truetype');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Butcherman';
+    src: url('/wp-content/themes/twentytwentyfour/assets/fonts/Butcherman/Butcherman-Regular.ttf') format('truetype');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Creepster';
+    src: url('/wp-content/themes/twentytwentyfour/assets/fonts/Creepster/Creepster-Regular.ttf') format('truetype');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Domine';
+    src: url('/wp-content/themes/twentytwentyfour/assets/fonts/Domine/static/Domine-Regular.ttf') format('truetype');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Jolly Lodger';
+    src: url('/wp-content/themes/twentytwentyfour/assets/fonts/Jolly_Lodger/JollyLodger-Regular.ttf') format('truetype');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Kablammo';
+    src: url('/wp-content/themes/twentytwentyfour/assets/fonts/Kablammo/Kablammo-Regular-VariableFont_MORF.ttf') format('truetype');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Nosifer';
+    src: url('/wp-content/themes/twentytwentyfour/assets/fonts/Nosifer/Nosifer-Regular.ttf') format('truetype');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'NotoSans';
+    src: url('/wp-content/themes/twentytwentyfour/assets/fonts/NotoSans/NotoSans[wght].ttf') format('truetype');
+    font-weight: 100 900;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Oooh Baby';
+    src: url('/wp-content/themes/twentytwentyfour/assets/fonts/Oooh_Baby/OoohBaby-Regular.ttf') format('truetype');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('/wp-content/themes/twentytwentyfour/assets/fonts/Open_Sans/static/OpenSans-Regular.ttf') format('truetype');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Orbitron';
+    src: url('/wp-content/themes/twentytwentyfour/assets/fonts/Orbitron/static/Orbitron-Regular.ttf') format('truetype');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Playwrite AU TAS';
+    src: url('/wp-content/themes/twentytwentyfour/assets/fonts/Playwrite_AU_TAS/static/PlaywriteAUTAS-Regular.ttf') format('truetype');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Press Start 2P';
+    src: url('/wp-content/themes/twentytwentyfour/assets/fonts/Press_Start_2P/PressStart2P-Regular.ttf') format('truetype');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('/wp-content/themes/twentytwentyfour/assets/fonts/Roboto/static/Roboto-Regular.ttf') format('truetype');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Rubik Puddles';
+    src: url('/wp-content/themes/twentytwentyfour/assets/fonts/Rubik_Puddles/RubikPuddles-Regular.ttf') format('truetype');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Trade Winds';
+    src: url('/wp-content/themes/twentytwentyfour/assets/fonts/Trade_Winds/TradeWinds-Regular.ttf') format('truetype');
+    font-display: swap;
+}
+
+/** 
+Override woocomerce and apply to 
+our own label for the variation fields 
+*/
+.woocommerce div.product form.cart table.variations th,
+.variation-label {
+    vertical-align: unset !important;
+    padding: unset !important;
+    width: 100px;
+    font-weight: 700;
+}
+
+/* Make WooCommerce variations table display as stacked rows */
+.woocommerce div.product form.cart table.variations {
+    display: flex;
+    flex-direction: column;
+}
+
+.woocommerce div.product form.cart table.variations tbody {
+    display: flex;
+    flex-direction: column;
+}
+
+.woocommerce div.product form.cart table.variations tr {
+    display: flex;
+    flex-direction: column;
+}
+
+.woocommerce div.product form.cart table.variations th {
+    display: block;
+    width: 100% !important;
+}
+
+.woocommerce div.product form.cart table.variations td {
+    display: flex;
+    width: 100%;
+}
+
+/* Remove extra spacing under variation labels */
+.woocommerce-page label {
+    margin-bottom: 0 !important;
+}
+
+.woocommerce table.variations tr td,
+.woocommerce table.variations tr th {
+    padding-bottom: 0 !important;
+}
+
+.woocommerce div.product form.cart .variations td,
+.woocommerce div.product form.cart .variations th {
+    line-height: normal !important;
+}
+
+:where(.wp-block-woocommerce-add-to-cart-form>*+*) {
+    padding: 0 !important;
+}
+  
+.comment-field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+  
+form[data-block-name="woocommerce/add-to-cart-with-options"] {
+    margin: 0;
+}
+  
+.wcpay-express-checkout-wrapper {
+    margin-top: 1rem;
+}
+
+/* allows us to center the add to cart */
+.wp-block-woocommerce-add-to-cart-form .variations_button {
+    display: flex;
+    justify-content: center;
+}
+.wp-block-woocommerce-add-to-cart-form form.cart {
+    display: unset;
+}
+
+/* Center the product thumbnails or they are off center on mobile */
+.wc-block-product-gallery-thumbnails__scrollable {
+    justify-content: space-evenly;
+}
+
+/* Remove the "hidden" mask as this is not actualy needed */
+:where(.wc-block-product-gallery-thumbnails).wc-block-product-gallery-thumbnails--overflow-right {
+    mask-image: unset;
+}
+
+/* Remove the gap between the product thumbnails */
+:where(.wc-block-product-gallery-thumbnails__scrollable) {
+    gap: unset;
+}
+
+/* Text on top of the product image */
+#comment-mask-product {
+    font-family: 'NotoSans', sans-serif;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    text-align: center;
+    margin: 20% 30% 27% 30%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    pointer-events: none;
+    z-index: 1;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    overflow: hidden;
+    line-height: 1;
+}
+
+/* Text on top of the first thumbnail in the carousel */
+#comment-mask-thumbnail {
+    font-family: 'NotoSans', sans-serif;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    text-align: center;
+    margin: 20% 30% 27% 30%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    pointer-events: none;
+    z-index: 1;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    overflow: hidden;
+    line-height: 1;
+}
+
+/* Comment field part of the product variations */
+.ycos-textarea-wrapper {
+    flex: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+#comment_text {
+    font-family: 'NotoSans', sans-serif;
+    font-size: 16px;
+    resize: none;
+    border: 4px solid black;
+    border-radius: 4px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    flex: 1;
+    padding: 4px 8px;
+}
+
+#comment_text:focus-visible {
+    outline: none;
+    border-color: #873eff;
+    border-radius: 0 0 4px 4px;
+    z-index: 2;
+}
+
+/* Go To Cart Button Styling */
+.ycos-go-to-cart-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 1em;
+}
+
+.ycos-go-to-cart-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 8px;
+    border-radius: 8px;
+    background-color: #873eff;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    border: none;
+}
+
+.ycos-go-to-cart-button:hover {
+    background-color: #a77eff;
+    color: #fff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, .125);
+}
+
+/* Set minimum width for second column in WooCommerce product page layout */
+.wp-block-columns .wp-block-column:nth-child(2) {
+    min-width: 300px;
+}
+

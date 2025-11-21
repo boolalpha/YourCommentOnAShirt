@@ -1,0 +1,34 @@
+[Unit]
+Description=YourCommentOnAShirt Reddit Bot
+After=network.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=reddit-bot
+Group=reddit-bot
+WorkingDirectory=/opt/reddit-bot
+Environment="PATH=/home/reddit-bot/.local/bin:/usr/local/bin:/usr/bin:/bin"
+ExecStart=/usr/local/bin/pipenv run python bot.py --config /opt/reddit-bot/config.yaml
+Restart=always
+RestartSec=10
+
+# Logging
+StandardOutput=append:/var/log/reddit-bot/bot.log
+StandardError=append:/var/log/reddit-bot/bot.error.log
+
+# Security hardening
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/log/reddit-bot
+
+# Graceful shutdown
+KillMode=mixed
+KillSignal=SIGTERM
+TimeoutStopSec=30
+
+[Install]
+WantedBy=multi-user.target
+

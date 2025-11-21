@@ -1,0 +1,45 @@
+{
+  "name": "ycos-image-service",
+  "version": "1.0.0",
+  "description": "Server-side image generation for YourCommentOnAShirt using Puppeteer",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "node test-service.js",
+    "test-auth": "node test-auth.js",
+    "verify": "node verify-shirt-image.js",
+    "verify-fonts": "node verify-fonts.js",
+    "pm2:start": "pm2 start ecosystem.config.js",
+    "pm2:restart": "pm2 restart ycos-image-service",
+    "pm2:stop": "pm2 stop ycos-image-service",
+    "pm2:delete": "pm2 delete ycos-image-service",
+    "pm2:logs": "pm2 logs ycos-image-service",
+    "pm2:monit": "pm2 monit",
+    "pm2:status": "pm2 list"
+  },
+  "keywords": [
+    "image-generation",
+    "puppeteer",
+    "screenshot",
+    "wordpress"
+  ],
+  "author": "YourCommentOnAShirt",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.1",
+    "helmet": "^7.2.0",
+    "puppeteer": "^24.30.0",
+    "sharp": "^0.33.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
